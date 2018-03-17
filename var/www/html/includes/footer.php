@@ -1,18 +1,18 @@
 		<?php
 		$json_source = file_get_contents('input.json');
 		$json_data = json_decode($json_source);
-		$status_sapin = $json_data->sapin->state;
+		$status_co2 = $json_data->co2->state;
 		$status_lumiere = $json_data->lumiere->state;
 		$status_air = $json_data->air->state;
 		?>
 		<div data-role="footer" style="text-align:center; height:95px;" data-position="fixed">
 			<div data-role="navbar">
 				<ul>
-					<li style="font-size: 14px;">Sapin
-						<div id="sapin_switch">  
-							<select name="sapin" id="sapin" data-role="flipswitch" data-mini="true" class="switch">
-								<option value="off" myTag="off" <?php if ($status_sapin=="off"){echo('selected=""');}?>>Off</option>
-								<option value="on" myTag="on" <?php if ($status_sapin=="on"){echo('selected=""');}?>>On</option>
+					<li style="font-size: 14px;">co2
+						<div id="co2_switch">  
+							<select name="co2" id="co2" data-role="flipswitch" data-mini="true" class="switch">
+								<option value="off" myTag="off" <?php if ($status_co2=="off"){echo('selected=""');}?>>Off</option>
+								<option value="on" myTag="on" <?php if ($status_co2=="on"){echo('selected=""');}?>>On</option>
 							</select>
 						</div>
 					</li>
@@ -41,9 +41,9 @@
 	$i=count($fichier)-1;
 	?>
 	<script type="text/javascript">
-	$('#sapin_switch').on('click', function() {
+	$('#co2_switch').on('click', function() {
 	var checkStatus = $('option:selected', this).attr('mytag');
-	window.location.href = "<?php echo $fichier[$i]; ?>?id=<?php echo $id; ?>&sapin_swicth=" + checkStatus; 
+	window.location.href = "<?php echo $fichier[$i]; ?>?id=<?php echo $id; ?>&co2_swicth=" + checkStatus; 
 	});
 	$('#lumiere_switch').on('click', function() {
 	var checkStatus = $('option:selected', this).attr('mytag');

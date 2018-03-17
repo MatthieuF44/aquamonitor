@@ -11,20 +11,20 @@
 $json_source = file_get_contents('./input.json');
 $json_data = json_decode($json_source,true);
 
-$data['sapin']['state']=$json_data['sapin']['state'];
+$data['co2']['state']=$json_data['co2']['state'];
 $data['lumiere']['state']=$json_data['lumiere']['state'];
 $data['air']['state']=$json_data['air']['state'];
 
-if (isset($_GET['sapin_swicth'])){
-	if ($_GET['sapin_swicth']=="off"){
+if (isset($_GET['co2_swicth'])){
+	if ($_GET['co2_swicth']=="off"){
 		$output = shell_exec('sudo /home/pi/install/433Utils/RPi_utils/codesend 852230');
 		echo "<pre>$output</pre>";
-		$data['sapin']['state']=$_GET['sapin_swicth'];
+		$data['co2']['state']=$_GET['co2_swicth'];
 	}
-	elseif ($_GET['sapin_swicth']=="on"){
+	elseif ($_GET['co2_swicth']=="on"){
 		$output = shell_exec('sudo /home/pi/install/433Utils/RPi_utils/codesend 852232');
 		echo "<pre>$output</pre>";
-		$data['sapin']['state']=$_GET['sapin_swicth'];
+		$data['co2']['state']=$_GET['co2_swicth'];
 	}
 }
 if (isset($_GET['lumiere_swicth'])){
