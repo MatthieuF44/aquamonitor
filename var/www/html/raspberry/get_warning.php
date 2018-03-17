@@ -79,11 +79,11 @@ foreach ($temp as $key => $value) {
 			$niveau=2;
 			$limite=$temp[$i]['max0'];
 		}
-		if ($temp[$i]['name']="Air"){
-			$advice=="Ouvrir les fenêtres.";
+		if ($temp[$i]['name']=="Air"){
+			$advice="Ouvrir les fenêtres.";
 		}
-		elseif ($temp[$i]['name']="Eau"){
-			$advice=="Aérer l'eau en orientant la canne de rejet ou mettre en route un système de ventilation.";
+		elseif ($temp[$i]['name']=="Eau"){
+			$advice="Aérer l'eau en orientant la canne de rejet ou mettre en route un système de ventilation.";
 		}
 		$alerte[]=[
 					"id_sensor" => $temp[$i]['id'],
@@ -210,8 +210,10 @@ foreach ($level as $key => $value) {
 }
 //Affichage des alertes si nb_alerte supérieur à zéro
 if ($nb_alerte>0){
-	$output = shell_exec('gpio write 27 1');	
+	$output = shell_exec('gpio mode 27 out');	
+	$output1 = shell_exec('gpio write 27 0');	
 	echo "<pre>$output</pre>";
+	echo "<pre>$output1</pre>";
 	
 	echo "Il y a ".$nb_alerte." alerte(s) :<br />";
 
@@ -353,7 +355,11 @@ if ($nb_alerte>0){
 	}
 }
 else{
-	$output = shell_exec('gpio write 27 0');	
+	$sql1 = "UPDATE `warning` SET `active` = '0'";
+	$result1 = mysqli_query($connection, $sql1) or die(mysqli_error($connection));
+	$output = shell_exec('gpio mode 27 out');	
+	$output1 = shell_exec('gpio write 27 1');	
 	echo "<pre>$output</pre>";
+	echo "<pre>$output1</pre>";
 }
 ?>
