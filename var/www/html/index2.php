@@ -130,9 +130,8 @@ else{
 					</a>
 				  </li>
 				  <li>
-					<a href="" data-ajax="false">
+					<a href="reglages.php?id=<?php echo $id; ?>" data-ajax="false">
 						<h2>Réglages</h2>
-						<p><b>Pas encore codé</b></p>
 					</a>
 				  </li>
 			</ul>
