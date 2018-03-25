@@ -35,7 +35,7 @@ else{
 
 	<div data-role="page">
 		<!-- Barre d'en-tête -->
-		<div data-role="header" style="height:45px;"><a href="index.php" data-icon="arrow-l">Accueil</a>
+		<div data-role="header" style="height:45px;"><a href="index.php" data-icon="arrow-l">Accueil</a><a href="./reglages.php?id=1" data-icon="gear">Réglages</a>
 			<h1><?php echo $titre;?></h1> 
 		</div>
 		<!-- /Barre d'en-tête -->

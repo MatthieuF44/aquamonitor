@@ -44,7 +44,7 @@ else{
 			while($row1 =mysqli_fetch_assoc($result1)){
 			?>
 				<!-- Barre d'en-tête -->
-				<div data-role="header" style="height:45px;"><a href="./index2.php?id=1" data-icon="arrow-l">Accueil</a>
+				<div data-role="header" style="height:45px;"><a href="./index2.php?id=1" data-icon="arrow-l">Accueil</a><a href="./reglages.php?id=1" data-icon="gear">Réglages</a>
 					<h1><?php echo $row1["fishtank_name"];?> | Température</h1> 
 				</div>
 				<!-- /Barre d'en-tête -->
